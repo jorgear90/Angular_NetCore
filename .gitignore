@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.userprefs
+*.ide
+*.log
+*.tlog
+*.pdb

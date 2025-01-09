@@ -1,0 +1,59 @@
+body {
+}
+.parrafo_registro {
+  text-align: left;
+  padding-left: 140px;
+}
+
+.largo {
+  width: 458px;
+}
+
+.largo2 {
+  width: 450px;
+}
+
+.triple {
+  width: 143px;
+}
+
+.doble {
+  width: 220px;
+}
+
+.largo, .largo2, .triple, .doble, .boton_registro {
+  margin-bottom: 10px;
+  height: 30px;
+}
+
+.boton_registro, .tener {
+  width: 460px;
+  height: 30px;
+}
+
+.boton_registro {
+  margin-top: 10px;
+  background-color: #77baf5;
+  color: white;
+}
+
+.noticias {
+  font-size: 12px;
+  text-align: left;
+  opacity: 0.6;
+}
+
+.div {
+  text-align: left;
+  padding-left: 140px;
+}
+
+.largo, .largo2, .triple, .doble {
+  background-color: #00002f;
+  color: white;
+}
+
+.tener {
+  background-color: #00002f;
+  color: #77baf5;
+}

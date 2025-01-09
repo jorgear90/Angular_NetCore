@@ -1,0 +1,9 @@
+:host {
+  display: block;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+  width: 100vw; /* Ocupa todo el ancho de la pantalla */
+  background-color: #00539b; 
+  max-width: 1280px;
+  padding: 2rem;
+  text-align: center;
+}

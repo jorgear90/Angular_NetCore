@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+  <form class="form_registro" id="registro"  (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <!--Titulo del formulario-->
+    <p class="parrafo_registro">Comienza tu aventura con una cuenta de Blizzard.</p>
+    <!--Seleccionar país de origen-->
+    <select class="largo" id="pais" name="pais" [(ngModel)]="pais" title="Selecciona tu país">
+      <option>Chile</option>
+      <option>Argentina</option>
+      <option>Estados Unidos</option>
+      <option>Japon</option>
+    </select>
+    <!--Inputs para nombre y apellido-->
+    <div>
+      <input class="doble" type="text" id="nombre" name="nombre" placeholder="Nombre" [(ngModel)]="nombre" required>
+      <input class="doble" type="text" id="apellido" name="apellido" placeholder="Apellido" [(ngModel)]="apellido" required>
+    </div>
+    <!--Este div agrupa los input correspondientes a la fecha de nacimiento-->
+    <div>
+      <input class="triple" id="dia" name="dia" type="number" placeholder="Día de nacimiento" [(ngModel)]="dia" min="1" max="30" required>
+      <input class="triple" id="mes" name="mes" type="number" placeholder="Mes" [(ngModel)]="mes" min="1" max="12" required>
+      <input class="triple" id="año" name="year" type="number" placeholder="Año" [(ngModel)]="year" min="1950" max="2011" required>
+    </div>
+    <!--Los input para el email y el password-->
+    <input class="largo2" type="email" id="email" name="email" placeholder="Dirección de correo electrónico" [(ngModel)]="email" required><br>
+    <input class="largo2" type="password" id="password" name="password" placeholder="Contraseña" [(ngModel)]="password" required><br>
+    <!--Botones-->
+    <input class="boton_registro" type="submit" value="Crear una cuenta gratuita"><br>
+    <input class="tener" type="button" [routerLink]="'/Login'" value="¿Ya tienes una cuenta?">
+    <script>
+            /*/Esta función redirige a la pagina de login al precionar el boton ¿ya tienes una cuenta?
+            function redirigirAPagina() {
+              window.location.href = 'login.php';
+            }*/
+            //Permite delimitar el rango de dias en la fecha de nacimiento
+            document.getElementById('dia').addEventListener('input', function() {
+                var valor = parseInt(this.value);
+                if (valor > 30) {
+                    this.value = 30;
+                }
+                if (valor < 1) {
+                    this.value = 1;
+                }
+            });
+            //Permite delimitar el rango de meses para la fecha de nacimiento
+            document.getElementById('mes').addEventListener('input', function() {
+                var valor = parseInt(this.value);
+                if (valor > 12) {
+                    this.value = 12;
+                }
+                if (valor < 1) {
+                    this.value = 1;
+                }
+            });
+            //Permite delimitar el rango de años para la fecha de nacimiento
+            document.getElementById('año').addEventListener('input', function() {
+                var valor = parseInt(this.value);
+                if (valor > 2011) {
+                    this.value = 2011;
+                }
+                /*if (valor < 1950) {
+                    this.value = 1050;
+                }*/
+            });
+    </script>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+  <!--Login-->
+  <h2 class="titulo_login">Login</h2>
+  <form class="form_login" id="Formulario" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <input required class="casilla" id="correo" name="correo" ngModel type="email" placeholder="Correo electrónico"><br>
+    <input required class="casilla" id="password" name="password" ngModel type="password" placeholder="Contraseña"><br>
+    <button class="boton" type="submit">Iniciar sesión</button><br>
+    <a class="crear" [routerLink]="'/Registro'" >Crear Cuenta</a>
+  </form>
+</body>
+</html>
