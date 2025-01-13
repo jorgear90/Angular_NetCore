@@ -18,4 +18,8 @@ export class UsuarioService {
     console.log('Enviando datos al backend:', usuario);
     return this.http.post<any>(this.apiUrl, usuario);
   }
+
+  checkCorreo(correo: string): Observable<boolean> {
+    return this.http.get<boolean>(`${this.apiUrl}/existeCorreo?correo=${correo}`);
+  }
 }

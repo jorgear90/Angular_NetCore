@@ -30,5 +30,12 @@ namespace AngularApp1.Server.Controllers
 
             return Created("api/usuarios/" + usuario.Id, usuario);
         }
+
+        [HttpGet("existeCorreo")]
+        public async Task<IActionResult> ExisteCorreo(string correo)
+        {
+            var existe = await _context.Usuarios.AnyAsync(u => u.Correo == correo);
+            return Ok(existe); // Retorna true si el correo existe, false en caso contrario
+        }
     }
 }

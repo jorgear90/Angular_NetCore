@@ -54,20 +54,32 @@ export class RegistroComponent implements OnInit {
         
       };
 
-      console.log('Objeto usuario:', usuario);
-
-      this.usuarioService.createUsuario(usuario).subscribe(
-        
-        (response) => {
-          console.log('Usuario creado:', response);
-          alert('Usuario registrado exitosamente');
+      // Verificar si el correo ya existe
+      this.usuarioService.checkCorreo(usuario.Correo).subscribe({
+        next: (existe) => {
+          if (existe) {
+            alert('Ya existe una cuenta para el correo ingresado.');
+          } else {
+            // Si no existe, registrar al usuario
+            this.usuarioService.createUsuario(usuario).subscribe({
+              next: (response) => {
+                console.log('Usuario creado:', response);
+                alert('Usuario registrado exitosamente');
+              },
+              error: (err) => {
+                console.error('Error al registrar usuario:', err);
+                alert('Ocurrió un error al registrar el usuario');
+              },
+            });
+          }
         },
-        (error) => {
-          console.log(usuario);
-          console.error('Error al registrar usuario:', error);
-          alert('Ocurrió un error al registrar el usuario');
-        }
-      );
+        error: (err) => {
+          console.error('Error al verificar correo:', err);
+          alert('Ocurrió un error al verificar el correo');
+        },
+      });
+
+   
     }
   }
 }
