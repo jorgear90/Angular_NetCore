@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { RegistroComponent } from './registro/registro.component';
 import { UsuarioService } from './Services/usuario.service';
 import { RouterModule } from '@angular/router';
+import { PaisService } from './Services/pais.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule, HttpClientModule,
     AppRoutingModule, FormsModule, RouterModule.forRoot([])
   ],
-  providers: [UsuarioService],
+  providers: [UsuarioService, PaisService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

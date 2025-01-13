@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PaisService {
-  private apiUrl = 'https://localhost:5001/api/usuarios'; // Ajusta el puerto si es necesario
+  private apiUrl = 'https://localhost:7026/api/paises';
 
   constructor(private http: HttpClient) { }
 
-  getUsuarios(): Observable<any[]> {
+  getPaises(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
 }

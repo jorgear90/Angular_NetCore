@@ -12,10 +12,9 @@
     <p class="parrafo_registro">Comienza tu aventura con una cuenta de Blizzard.</p>
     <!--Seleccionar país de origen-->
     <select class="largo" id="pais" name="pais" [(ngModel)]="pais" title="Selecciona tu país">
-      <option>Chile</option>
-      <option>Argentina</option>
-      <option>Estados Unidos</option>
-      <option>Japon</option>
+      <option *ngFor="let pais of paises" [value]="pais.id">
+        {{ pais.nombre }}
+      </option>
     </select>
     <!--Inputs para nombre y apellido-->
     <div>

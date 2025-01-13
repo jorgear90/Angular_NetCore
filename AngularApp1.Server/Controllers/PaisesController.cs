@@ -17,14 +17,9 @@ namespace AngularApp1.Server.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsuarios()
+        public async Task<ActionResult<IEnumerable<Pais>>> GetPaises()
         {
-            return Ok(await _context.Paises.ToListAsync());
-        }
-
-        private IActionResult Ok(List<Pais> pais)
-        {
-            throw new NotImplementedException();
+            return await _context.Paises.ToListAsync();
         }
     }
 }

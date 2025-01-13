@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsuarioService } from '../Services/usuario.service';
+import { PaisService } from '../Services/pais.service';
 
 @Component({
   selector: 'app-registro',
@@ -8,7 +9,10 @@ import { UsuarioService } from '../Services/usuario.service';
   styleUrl: './registro.component.css'
 })
 
-export class RegistroComponent {
+export class RegistroComponent implements OnInit {
+
+  paises: any[] = []; // Lista de países
+
   nombre: string = '';
   apellido: string = '';
   email: string = '';
@@ -18,7 +22,22 @@ export class RegistroComponent {
   mes: number = 0;
   year: number = 0;
 
-  constructor(private usuarioService: UsuarioService) { }
+  constructor(private usuarioService: UsuarioService, private paisService: PaisService) { }
+
+  ngOnInit(): void {
+    this.cargarPaises();
+  }
+
+  cargarPaises(): void {
+    this.paisService.getPaises().subscribe({
+      next: (data) => {
+        this.paises = data;
+      },
+      error: (err) => {
+        console.error('Error al cargar países:', err);
+      },
+    });
+  }
 
   onSubmit(form: any) {
     console.log('Valores del formulario:', form.value);
