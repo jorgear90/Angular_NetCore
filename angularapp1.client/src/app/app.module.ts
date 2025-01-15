@@ -11,13 +11,19 @@ import { RegistroComponent } from './registro/registro.component';
 import { UsuarioService } from './Services/usuario.service';
 import { RouterModule } from '@angular/router';
 import { PaisService } from './Services/pais.service';
+import { IniciadaComponent } from './iniciada/iniciada.component';
+import { ProcesoComponent } from './proceso/proceso.component';
+import { TerminadasComponent } from './terminadas/terminadas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponet,
     TareasComponet,
-    RegistroComponent
+    RegistroComponent,
+    IniciadaComponent,
+    ProcesoComponent,
+    TerminadasComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

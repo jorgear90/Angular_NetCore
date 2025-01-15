@@ -6,6 +6,18 @@
     <title></title>
 </head>
 <body>
-  <h1>Aquí iran las tareas</h1>
+  <div class="barra-superior">
+    <nav>
+      <ul class="opciones">
+        <li><a routerLink="inicio" routerLinkActive="active">Inicio</a></li>
+        <li><a routerLink="en-proceso" routerLinkActive="active">En Proceso</a></li>
+        <li><a routerLink="terminadas" routerLinkActive="active">Terminadas</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="contenido">
+    <router-outlet></router-outlet>
+  </div>
 </body>
 </html>
