@@ -1,2 +1,44 @@
-body {
+.contenedor_form-tarea {
+  text-align: center; /* Centra texto y elementos inline-block */
+  background-color: white;
+  width: 600px;
+  margin: 20px auto; /* Centra horizontalmente el contenedor */
+  padding: 20px; /* Agrega espacio interno para mejor diseño */
+  border-radius: 10px; /* Redondea las esquinas del contenedor */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Opcional: sombra para resaltar */
 }
+
+.crear_tarea {
+  margin-bottom: 20px; /* Separa el título del formulario */
+  font-size: 24px; /* Ajusta el tamaño del texto */
+  font-weight: bold;
+}
+
+.form_tarea {
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos del formulario estén en columna */
+  //align-items: center; /* Centra los elementos dentro del formulario */
+  gap: 15px; /* Espacio entre los elementos del formulario */
+}
+
+.cuadro_titulo,
+.cuadro_texto,
+.boton_tarea {
+  width: 80%; /* Ajusta el ancho de los inputs */
+  max-width: 500px; /* Ancho máximo para inputs grandes */
+  padding: 10px;
+  font-size: 16px;
+}
+
+.boton_tarea {
+  background-color: #007BFF; /* Color del botón */
+  color: white; /* Color del texto */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width:150px;
+}
+
+  .boton_tarea:hover {
+    background-color: #0056b3; /* Color al pasar el mouse */
+  }

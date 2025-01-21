@@ -14,6 +14,7 @@ import { PaisService } from './Services/pais.service';
 import { IniciadaComponent } from './iniciada/iniciada.component';
 import { ProcesoComponent } from './proceso/proceso.component';
 import { TerminadasComponent } from './terminadas/terminadas.component';
+import { TareaService } from './Services/tarea.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { TerminadasComponent } from './terminadas/terminadas.component';
     BrowserModule, HttpClientModule,
     AppRoutingModule, FormsModule, RouterModule.forRoot([])
   ],
-  providers: [UsuarioService, PaisService],
+  providers: [UsuarioService, PaisService, TareaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
