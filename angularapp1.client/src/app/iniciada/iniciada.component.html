@@ -15,3 +15,7 @@
     
   </form>
 </div>
+
+<div class="tasks-container">
+  <app-first *ngFor="let tarea of tareas" [tarea]="tarea"></app-first>
+</div>

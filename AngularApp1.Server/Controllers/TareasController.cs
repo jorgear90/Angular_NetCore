@@ -29,5 +29,40 @@ namespace AngularApp1.Server.Controllers
 
             return Created("api/tareas/" + tarea.Id, tarea);
         }
+
+        [HttpGet]
+        public IActionResult GetTasksByEmail([FromQuery] string correo, [FromQuery] string estado)
+        {
+            var tareas = _context.Tareas
+                .Where(t => t.Correo == correo && t.Estado == estado) // Filtrar por correo y estado
+                .ToList();
+
+            if (tareas == null || !tareas.Any())
+            {
+                return NotFound(); // Devuelve 404 si no hay tareas
+            }
+
+            return Ok(tareas); // Devuelve las tareas en un JSON
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateTaskStatus(int id, [FromBody] UpdateTaskRequest request)
+        {
+            if (request == null || string.IsNullOrEmpty(request.Estado))
+            {
+                return BadRequest("El campo 'estado' es requerido.");
+            }
+
+            var tarea = _context.Tareas.FirstOrDefault(t => t.Id == id);
+            if (tarea == null)
+            {
+                return NotFound(); // Devuelve 404 si no encuentra la tarea
+            }
+
+            tarea.Estado = request.Estado; // Asigna el nuevo estado
+            _context.SaveChanges();
+
+            return Ok(tarea); // Devuelve la tarea actualizada
+        }
     }
 }

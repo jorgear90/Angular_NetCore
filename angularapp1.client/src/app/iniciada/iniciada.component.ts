@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TareaService } from '../Services/tarea.service';
+import { FirstService } from '../Services/first.service';
 
 @Component({
   selector: 'app-iniciada',
@@ -8,7 +9,9 @@ import { TareaService } from '../Services/tarea.service';
   styleUrl: './iniciada.component.css'
 })
 
-export class IniciadaComponent {
+export class IniciadaComponent implements OnInit {
+
+  tareas: any[] = [];
 
   titulo: string = '';
   descripcion: string = '';
@@ -16,9 +19,14 @@ export class IniciadaComponent {
   estado: string = 'iniciada';
   
   textoTarea: string = ''; // Inicializamos la propiedad textoTarea
-  constructor(private tareaService : TareaService) { }
+  constructor(private tareaService: TareaService, private taskService: FirstService) { }
 
-  
+  ngOnInit(): void {
+    const estado = this.estado; // Define el estado deseado
+    this.taskService.getTasksByEmailAndState(this.correo, estado).subscribe(data => {
+      this.tareas = data.sort((a, b) => a.titulo.localeCompare(b.titulo)); // Ordenar alfabéticamente
+    });
+  }
 
   // Método para manejar el envío del formulario
   onSubmit(form: any): void {
@@ -47,4 +55,6 @@ export class IniciadaComponent {
 
     }
   }
+
+
 }

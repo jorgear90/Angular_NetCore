@@ -42,3 +42,10 @@
   .boton_tarea:hover {
     background-color: #0056b3; /* Color al pasar el mouse */
   }
+
+.tasks-container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}

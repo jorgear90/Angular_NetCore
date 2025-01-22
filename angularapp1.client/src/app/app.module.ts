@@ -15,6 +15,8 @@ import { IniciadaComponent } from './iniciada/iniciada.component';
 import { ProcesoComponent } from './proceso/proceso.component';
 import { TerminadasComponent } from './terminadas/terminadas.component';
 import { TareaService } from './Services/tarea.service';
+import { FirstComponent } from './PrimeraTarjeta/first-card.component';
+import { FirstService } from './Services/first.service';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,14 @@ import { TareaService } from './Services/tarea.service';
     RegistroComponent,
     IniciadaComponent,
     ProcesoComponent,
-    TerminadasComponent
+    TerminadasComponent,
+    FirstComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
     AppRoutingModule, FormsModule, RouterModule.forRoot([])
   ],
-  providers: [UsuarioService, PaisService, TareaService],
+  providers: [UsuarioService, PaisService, TareaService, FirstService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
