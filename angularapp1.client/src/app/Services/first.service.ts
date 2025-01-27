@@ -23,4 +23,7 @@ export class FirstService {
       }
     );
   }
+  deleteTask(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
 }

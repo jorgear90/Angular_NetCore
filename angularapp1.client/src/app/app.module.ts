@@ -17,6 +17,8 @@ import { TerminadasComponent } from './terminadas/terminadas.component';
 import { TareaService } from './Services/tarea.service';
 import { FirstComponent } from './PrimeraTarjeta/first-card.component';
 import { FirstService } from './Services/first.service';
+import { SecondComponent } from './SegundaTarjeta/second-card.component';
+import { ThirdComponent } from './TerceraTarjeta/third-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { FirstService } from './Services/first.service';
     IniciadaComponent,
     ProcesoComponent,
     TerminadasComponent,
-    FirstComponent
+    FirstComponent,
+    SecondComponent,
+    ThirdComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

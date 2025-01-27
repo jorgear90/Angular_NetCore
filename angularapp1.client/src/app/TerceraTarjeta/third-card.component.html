@@ -1,0 +1,7 @@
+<div class="first-card">
+  <h4>{{ tarea.titulo }}</h4>
+  <p>{{ tarea.descripcion }}</p>
+  <button class="boton" type="button" (click)="updateTaskStatus(tarea.id)">En proceso</button>
+  <button class="boton" type="button" (click)="deleteTask(tarea.id)">Eliminar</button>
+
+</div>

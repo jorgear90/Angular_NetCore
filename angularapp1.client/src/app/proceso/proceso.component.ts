@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FirstService } from '../Services/first.service';
+
 
 @Component({
   selector: 'app-proceso',
@@ -8,5 +9,21 @@ import { Router } from '@angular/router';
 })
 
 export class ProcesoComponent {
-  constructor(private router: Router) { }
+
+
+  tareas: any[] = [];
+
+  titulo: string = '';
+  descripcion: string = '';
+  correo: string = 'jorge.rojo.f@gmail.com';
+  estado: string = 'en proceso';
+
+  constructor(private taskService: FirstService) { }
+
+  ngOnInit(): void {
+    const estado = this.estado; // Define el estado deseado
+    this.taskService.getTasksByEmailAndState(this.correo, estado).subscribe(data => {
+      this.tareas = data.sort((a, b) => a.titulo.localeCompare(b.titulo)); // Ordenar alfabéticamente
+    });
+  }
 }

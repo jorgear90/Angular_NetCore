@@ -19,4 +19,11 @@ export class TareaService {
     return this.http.post<any>(this.apiUrl, tarea);
   }
 
+  updateTaskStatus(id: number, nuevoEstado: string): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${id}`, { estado: nuevoEstado }, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+  
+
 }

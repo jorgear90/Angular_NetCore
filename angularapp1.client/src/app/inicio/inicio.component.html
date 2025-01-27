@@ -12,7 +12,8 @@
     <input required class="casilla" id="correo" name="correo" ngModel type="email" placeholder="Correo electrónico"><br>
     <input required class="casilla" id="password" name="password" ngModel type="password" placeholder="Contraseña"><br>
     <button class="boton" type="submit">Iniciar sesión</button><br>
-    <a class="crear" [routerLink]="'/Registro'" >Crear Cuenta</a>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    <a class="crear" [routerLink]="'/Registro'">Crear Cuenta</a>
   </form>
 </body>
 </html>

@@ -64,5 +64,19 @@ namespace AngularApp1.Server.Controllers
 
             return Ok(tarea); // Devuelve la tarea actualizada
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteTask(int id)
+        {
+            var tarea = _context.Tareas.FirstOrDefault(t => t.Id == id);
+            if (tarea == null)
+            {
+                return NotFound(); // Devuelve 404 si no se encuentra la tarea
+            }
+
+            _context.Tareas.Remove(tarea); // Elimina la tarea de la base de datos
+            _context.SaveChanges(); // Guarda los cambios
+
+            return NoContent(); // Devuelve 204 No Content como confirmación
+        }
     }
 }
