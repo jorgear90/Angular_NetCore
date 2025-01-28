@@ -22,4 +22,9 @@ export class UsuarioService {
   checkCorreo(correo: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.apiUrl}/existeCorreo?correo=${correo}`);
   }
+
+  login(correo: string, password: string): Observable<any> {
+    const payload = { correo, password };
+    return this.http.post(`${this.apiUrl}/login`, payload);
+  }
 }
