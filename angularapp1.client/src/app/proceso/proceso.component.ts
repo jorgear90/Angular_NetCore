@@ -15,12 +15,13 @@ export class ProcesoComponent {
 
   titulo: string = '';
   descripcion: string = '';
-  correo: string = 'jorge.rojo.f@gmail.com';
+  correo: string = ' ';
   estado: string = 'en proceso';
 
   constructor(private taskService: FirstService) { }
 
   ngOnInit(): void {
+    this.correo = localStorage.getItem('correo') || '';
     const estado = this.estado; // Define el estado deseado
     this.taskService.getTasksByEmailAndState(this.correo, estado).subscribe(data => {
       this.tareas = data.sort((a, b) => a.titulo.localeCompare(b.titulo)); // Ordenar alfabéticamente

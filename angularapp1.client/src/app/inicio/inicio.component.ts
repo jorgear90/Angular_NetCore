@@ -21,6 +21,9 @@ export class InicioComponet {
       next: (response) => {
         console.log('Login exitoso:', response);
 
+        // Guardar el correo en localStorage
+        localStorage.setItem('correo', correo);
+
         // Redirigir al componente de tareas
         this.router.navigate(['/Tareas']);
       },

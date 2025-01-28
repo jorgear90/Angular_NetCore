@@ -15,13 +15,15 @@ export class IniciadaComponent implements OnInit {
 
   titulo: string = '';
   descripcion: string = '';
-  correo: string = 'jorge.rojo.f@gmail.com';
+  correo: string = ' ';
   estado: string = 'iniciada';
   
   textoTarea: string = ''; // Inicializamos la propiedad textoTarea
   constructor(private tareaService: TareaService, private taskService: FirstService) { }
 
   ngOnInit(): void {
+    // Recuperar el correo del usuario
+    this.correo = localStorage.getItem('correo') || '';
     const estado = this.estado; // Define el estado deseado
     this.taskService.getTasksByEmailAndState(this.correo, estado).subscribe(data => {
       this.tareas = data.sort((a, b) => a.titulo.localeCompare(b.titulo)); // Ordenar alfabéticamente
@@ -30,6 +32,8 @@ export class IniciadaComponent implements OnInit {
 
   // Método para manejar el envío del formulario
   onSubmit(form: any): void {
+    // Recuperar el correo del usuario
+    this.correo = localStorage.getItem('correo') || '';
     console.log('Formulario enviado:', form.value);
     if (form.valid) {
       const tarea = {
